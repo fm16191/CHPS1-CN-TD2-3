@@ -4,7 +4,7 @@ exec('matmat3b.sci',-1);
 exec('matmat2b.sci',-1);
 exec('matmat1b.sci',-1);
 
-// Fonction mesure de performance sur un dotprod m,n,p
+// Fonction mesure de performance sur un produit matrice matrice m,n,p
 function [disp, avg, med, mn, v2, v3] = benchmark(runs, m,n,p)
 t = zeros(3,runs);
 for i=1:runs
@@ -71,6 +71,7 @@ a.font_size = 3;
 a.x_label.font_size = 3;
 a.y_label.font_size = 3;
 a.title.font_size = 3;
+xs2svg(gcf(), "matmat_speedup.svg");
 endfunction
 
 // Fonction principale
@@ -80,5 +81,5 @@ plot_matmat_benchmark(matrix_size_range, v2, v3)
 endfunction
 
 // Exécutions des benchmarks suivants : 
-run_matmat_benchmark(10:5:100, 20)
-run_matmat_benchmark([10:10:100,200:100:1000],10)
+// run_matmat_benchmark(10:5:100, 20)
+// run_matmat_benchmark([10:10:100,110:20:200],10)
